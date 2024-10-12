@@ -5,6 +5,22 @@ return {
       format = {
         timeout_ms = 30000,
       },
+      servers = {
+        gopls = {
+          settings = {
+            gopls = {
+              hints = {
+                assignVariableTypes = false, -- Disable type hints for variables
+                compositeLiteralFields = false,
+                compositeLiteralTypes = false,
+                constantValues = false,
+                functionTypeParameters = false,
+                parameterNames = false,
+              },
+            },
+          },
+        },
+      },
       -- servers = {
       --   cssls = {},
       --   docker_compose_language_service = {},

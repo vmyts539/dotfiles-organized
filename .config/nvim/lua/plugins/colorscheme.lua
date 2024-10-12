@@ -2,7 +2,13 @@ return {
   -- add theme
   { "navarasu/onedark.nvim" },
   { "olimorris/onedarkpro.nvim" },
-  { "rebelot/kanagawa.nvim" },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+    opts = {
+      transparent = true,
+    },
+  },
   { "marko-cerovac/material.nvim" },
   -- {
   --   "folke/tokyonight.nvim",
@@ -11,6 +17,7 @@ return {
   -- },
   {
     "folke/tokyonight.nvim",
+    lazy = true,
     opts = {
       transparent = true,
       styles = {
