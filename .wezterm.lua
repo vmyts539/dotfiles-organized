@@ -29,10 +29,14 @@ config.color_scheme = "Argonaut (Gogh)"
 -- Dark Bright
 -- config.color_scheme = "Andromeda"
 
-config.font = wezterm.font("MesloLGS NF")
+-- config.color_scheme = 'Bamboo Multiplex'
+-- config.color_scheme = "Banana Blueberry"
+-- config.color_scheme = "Blue Dolphin (Gogh)"
+
+config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 19
 
-config.enable_tab_bar = false
+-- config.enable_tab_bar = false
 
 -- config.default_cursor_style = "BlinkingBar"
 config.window_decorations = "RESIZE"
@@ -42,4 +46,54 @@ config.window_background_opacity = 0.95
 config.macos_window_background_blur = 25
 
 -- and finally, return the configuration to wezterm
+
+config.keys = {
+	-- Split the pane vertically
+	{
+		key = "_",
+		mods = "SHIFT|CMD",
+		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	-- Split the pane horizontally
+	{
+		key = "|",
+		mods = "CMD",
+		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+	},
+	-- Close the current pane
+	{
+		key = "w",
+		mods = "SHIFT|CMD",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
+	-- Move the current tab one position to the left
+	{
+		key = "LeftArrow",
+		mods = "SHIFT|CMD",
+		action = wezterm.action.MoveTabRelative(-1),
+	},
+	-- Move the current tab one position to the right
+	{
+		key = "RightArrow",
+		mods = "SHIFT|CMD",
+		action = wezterm.action.MoveTabRelative(1),
+	},
+	-- Switch to the next tab on the left
+	{
+		-- key = "LeftArrow",
+		-- mods = "OPT|CMD",
+		key = "h",
+		mods = "SHIFT|CMD",
+		action = wezterm.action.ActivateTabRelative(-1),
+	},
+	-- Switch to the next tab on the right
+	{
+		-- key = "RightArrow",
+		-- mods = "OPT|CMD",
+		key = "l",
+		mods = "SHIFT|CMD",
+		action = wezterm.action.ActivateTabRelative(1),
+	},
+}
+
 return config
